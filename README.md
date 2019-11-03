@@ -1,5 +1,14 @@
 # zktap
 
+
+run the server (../zktap):
+
+    python3 manage.py runserver
+    
+then
+
+    open http://127.0.0.1:8000/
+
 Tutorails I have been reading:
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
 
@@ -13,8 +22,6 @@ user
 username: user1
 password: user1user1
 
-run the server (../zktap):
-    python3 manage.py runserver
 
 create the site (../):
     django-admin startproject xx
