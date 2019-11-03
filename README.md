@@ -2,6 +2,7 @@
 
 Tutorails I have been reading:
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
+
 https://docs.djangoproject.com/en/2.2/intro/
 
 superuser
