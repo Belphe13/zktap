@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Door, User
 from django.views import generic
 
@@ -21,3 +21,14 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context = context)
 
+class DoorListView(generic.ListView):
+    model = Door
+
+class DoorDetailView(generic.DetailView):
+    model = Door
+
+class UserListView(generic.ListView):
+    model = User
+
+class UserDetailView(generic.DetailView):
+    model = User

@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Door List</h1>
+  {% if door_list %}
+  <ul>
+    {% for door in door_list %}
+      <li>
+        <a href="{{ door.get_absolute_url }}">{{ door.door_name }}</a> ({{door.location}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no door in the collection.</p>
+  {% endif %}       
+{% endblock %}
