@@ -23,12 +23,14 @@ def index(request):
 
 class DoorListView(generic.ListView):
     model = Door
+    paginate_by = 10
 
 class DoorDetailView(generic.DetailView):
     model = Door
 
 class UserListView(generic.ListView):
     model = User
+    paginate_by = 10
 
 class UserDetailView(generic.DetailView):
     model = User

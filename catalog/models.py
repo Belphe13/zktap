@@ -27,7 +27,6 @@ class User(models.Model):
     user_public_key = models.CharField(max_length=256, default='DEFAULT')
     door = models.ManyToManyField(Door, related_name=None)
 
-
     # Order
     class Meta:
         ordering = ['last_name', 'first_name']
