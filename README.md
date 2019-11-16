@@ -6,28 +6,28 @@
 
 2. Run the server in the folder containing manage.py (../zktap):
 
-    python3 manage.py runserver
+        python3 manage.py runserver
     
 3. Then open
 
-    http://127.0.0.1:8000/
+        http://127.0.0.1:8000/
 
 ## Ways to Modify Database
 
 1. Admin page: login as superuser to modify doors and users directly
 
-    http://127.0.0.1:8000/admin
+        http://127.0.0.1:8000/admin
     
 2. Using Django shell
     
-    python3 manage.py shell
-    >>> from catalog.models import User, Door
-    >>> new_door = Door(door_name="", location="", public_key)
-    >>> new_door.save()
+        python3 manage.py shell
+        >>> from catalog.models import User, Door
+        >>> new_door = Door(door_name="", location="", public_key)
+        >>> new_door.save()
     
 3. Using python shell with test.py
     
-    python manage.py shell < test.py
+        python manage.py shell < test.py
 
 
 ## Accounts
