@@ -1,25 +1,36 @@
-## zktap
+# zktap
 
-# how to set up the web app:
+## How to Set Up the Web App
 
-Install Django
+1. Install Django
 
-run the server (../zktap):
+2. Run the server in the folder containing manage.py (../zktap):
 
     python3 manage.py runserver
     
-then open
+3. Then open
 
     http://127.0.0.1:8000/
 
-Tutorails I have been reading:
+## Ways to Modify Database
 
-https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
+1. Admin page: login as superuser to modify doors and users directly
 
-https://docs.djangoproject.com/en/2.2/intro/
+    http://127.0.0.1:8000/admin
+    
+2. Using Django shell
+    
+    python3 manage.py shell
+    >>> from catalog.models import User, Door
+    >>> new_door = Door(door_name="", location="", public_key)
+    >>> new_door.save()
+    
+3. Using python shell with test.py
+    
+    python manage.py shell < test.py
 
 
-# accounts
+## Accounts
 superuser
 username: admin
 password: adminadmin
@@ -28,18 +39,25 @@ user
 username: user1
 password: user1user1
 
-# additional features
-create the site (../):
+## Additional Features
+Create the site (../):
 
     django-admin startproject zktap
 
-create the app catalog(../zktap):
+Create the app catalog(../zktap):
 
     python3 manage.py startapp catalog
 
-create superuser (../zktap):
+Create superuser (../zktap):
 
     python3 manage.py createsuperuser
+
+# Tutorails
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
+
+https://docs.djangoproject.com/en/2.2/intro/
+
 
 locallibrary - zktap
 
