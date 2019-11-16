@@ -1,5 +1,8 @@
-# zktap
+## zktap
 
+# how to set up the web app:
+
+Install Django
 
 run the server (../zktap):
 
@@ -15,6 +18,8 @@ https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
 
 https://docs.djangoproject.com/en/2.2/intro/
 
+
+# accounts
 superuser
 username: admin
 password: adminadmin
@@ -23,7 +28,7 @@ user
 username: user1
 password: user1user1
 
-
+# additional features
 create the site (../):
 
     django-admin startproject zktap
