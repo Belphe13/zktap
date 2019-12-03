@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views.generic.base import View, TemplateView
 
 from accounts.models import User
-from .models import Door, DoorRequest, ExternalInput
+from .models import Door, DoorRequest
 from django.views import generic
 from django.contrib import messages
 
@@ -42,10 +42,6 @@ class DoorListView(generic.ListView):
 
 class DoorDetailView(generic.DetailView):
     model = Door
-
-
-class InputDetailView(generic.DetailView):
-    model = ExternalInput
 
 
 class UserListView(LoginRequiredMixin, generic.ListView):
