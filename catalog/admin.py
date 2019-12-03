@@ -1,6 +1,12 @@
 from django.contrib import admin
-from .models import User, Door
+from .models import Door
+
 
 # Register your models here.
-admin.site.register(User)
-admin.site.register(Door)
+class DoorAdmin(admin.ModelAdmin):
+    list_display = ('door_name', 'location', 'door_public_key')
+    search_fields = ['door_name']
+
+
+# admin.site.register(User)
+admin.site.register(Door, DoorAdmin)

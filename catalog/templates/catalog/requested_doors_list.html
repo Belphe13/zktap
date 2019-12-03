@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Requested Door List</h1>
+    {% if door_requests %}
+        <ul>
+            <table>
+                <thead>
+                <th>User</th>
+                <th>Door</th>
+                <th>Status</th>
+                <th>Action</th>
+                </thead>
+                <tbody>
+                {% for door_request in door_requests %}
+                    <tr>
+                        <td>{{ door_request.user }}</td>
+                        <td>{{ door_request.door }}</td>
+                        <td>{{ door_request.get_status_display }}</td>
+                        <td>
+                            {% if door_request.status == 'pending' %}
+                                <a href="{% url 'request-update' pk=door_request.id status='approved' %}">Accept</a>
+                                <br>
+                                <a href="{% url 'request-update' pk=door_request.id status='rejected' %}">Reject</a>
+                            {% elif door_request.status == 'approved' %}
+                                <a href="{% url 'request-update' pk=door_request.id status='rejected' %}">Revoke</a>
+                            {% elif door_request.status == 'rejected' %}
+                                <a href="{% url 'request-update' pk=door_request.id status='approved' %}">Accept</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </ul>
+    {% else %}
+        <p>There are no door in the collection.</p>
+    {% endif %}
+{% endblock %}

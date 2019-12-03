@@ -2,9 +2,12 @@
 
 {% block content %}
 
-<h1>Name: {{ user.netid }}</h1>
-
-<p><strong>Door Accessed:</strong> {% for door in user.door.all %}{{door}}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-
+    <h1>Name: {{ user_accessed.last_name }}, {{ user_accessed.first_name }}</h1>
+    <p>
+        <strong>Door Accessed:</strong>
+        {% for door in user_accessed.doors.all %}
+            {{ door }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
 
 {% endblock %}
