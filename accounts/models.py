@@ -17,6 +17,7 @@ class User(AbstractUser):
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
     user_public_key = models.CharField(max_length=256, default='0')
+    user_private_key = models.CharField(max_length=256, default='0')
     doors = models.ManyToManyField('catalog.Door', related_name='assigned_doors', null=True, blank=True)
 
     EMAIL_FIELD = 'email'

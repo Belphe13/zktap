@@ -10,6 +10,7 @@ class Door(models.Model):
     door_name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     door_public_key = models.CharField(max_length=256, default='0')
+    door_private_key = models.CharField(max_length=256, default='0')
 
     # Methods
     def get_absolute_url(self):
