@@ -11,5 +11,9 @@ urlpatterns = [
     path('door/<int:pk>', views.DoorDetailView.as_view(), name='door-detail'),
     path('door/<int:pk>/request/', views.RequestDoorView.as_view(), name='door-request'),
     path('users/', views.UserListView.as_view(), name='users'),
+
+    path('log/', views.InputListView.as_view(), name='external_input'),
     path('user/<int:pk>', views.UserDetailView.as_view(), name='user-detail'),
+
+
 ]

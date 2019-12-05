@@ -6,8 +6,8 @@
         <ul>
             <table>
                 <thead>
-                <th>Door Name</th>
                 <th>Location</th>
+                <th>Door Name</th>
                 {% if user.is_authenticated and not user.is_superuser %}
                     <th>Status</th>
                 {% endif %}
@@ -15,8 +15,8 @@
                 <tbody>
                 {% for door in door_list %}
                     <tr>
-                        <td><a href="{{ door.get_absolute_url }}">{{ door.door_name }}</a></td>
                         <td>{{ door.location }}</td>
+                        <td><a href="{{ door.get_absolute_url }}">{{ door.door_name }}</a></td>
                         <td>
                             {% if user.is_authenticated and not user.is_superuser %}
                                 {% if door.request %}

@@ -4,12 +4,17 @@ from django.urls import reverse
 from django.views.generic.base import View, TemplateView
 
 from accounts.models import User
-from .models import Door, DoorRequest
+from .models import Door, DoorRequest, Input
 from django.views import generic
 from django.contrib import messages
 
 # Create your views here.
 def index(request):
+
+    input_auth = '0'
+    input_door_public_key = '0'
+    input_user_public_key = '0'
+
     # Generate counts of some of the main objects
     num_doors = Door.objects.all().count()
     num_users = User.objects.all().count()
@@ -21,11 +26,15 @@ def index(request):
     context = {
         'num_doors': num_doors,
         'num_users': num_users,
-        'num_visits': num_visits
+        'num_visits': num_visits,
+        'input_auth': input_auth,
+        'input_door_public_key': input_door_public_key,
+        'input_user_public_key': input_user_public_key
     }
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
 
 
 class DoorListView(generic.ListView):
@@ -79,7 +88,8 @@ class RequestListView(UserPassesTestMixin, LoginRequiredMixin, generic.ListView)
         return self.request.user.is_superuser
 
 
-class RequestUpdate(UserPassesTestMixin, LoginRequiredMixin, TemplateView, ):
+
+class RequestUpdate(UserPassesTestMixin, LoginRequiredMixin, TemplateView):
     model = DoorRequest
     template_name = 'catalog/requested_doors_list.html'
 
@@ -101,3 +111,9 @@ class RequestUpdate(UserPassesTestMixin, LoginRequiredMixin, TemplateView, ):
         except Exception as e:
             print(e)
             return redirect(reverse('requested-doors'))
+
+
+class InputListView(UserPassesTestMixin, LoginRequiredMixin, generic.ListView):
+    model = Input
+    template_name='catalog/log.html'
+    context_object_name = 'external_input'

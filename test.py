@@ -9,8 +9,8 @@ starttime=time.time()
 while True:
     input_bool = 'True' # assume take external input later
 
-    input_door = Door.objects.get(door_name='Instructional Clean Room') # take door_public_key
-    input_name = User.objects.get(username='lyang57') # user_public_key
+    input_door = Door.objects.get(door_name='Senior Design Lab') # take door_public_key
+    input_name = User.objects.get(username='user1') # user_public_key
 
     input_access = DoorRequest.objects.get(door = input_door, user = input_name)
 
