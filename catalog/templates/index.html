@@ -2,6 +2,24 @@
 
 {% block content %}
 
+{{ external_input.input_auth }}
+
+{% if external_input.input_auth == '-1' %}
+<div class="alert alert-light">
+    <strong>Peaceful... {{ external_input.input_auth }}</strong> Nothing is happening.
+</div>
+
+{% elif input_auth == '0' %}
+<div class="alert alert-danger">
+    <strong>Danger! {{ input_auth }}</strong> This alert box indicates a dangerous or potentially negative action.
+</div>
+
+{% elif input_auth == '1' %}
+<div class="alert alert-success">
+    <strong>Success! {{ input_auth }}</strong> Indicates a successful or positive action.
+</div>
+{% endif %}
+
 <h1>zkTap</h1>
 <p>Welcome to <em>zkTap</em>, a very basic Django website developed for <em>ECE 445: Senior Design</em>!</p>
 

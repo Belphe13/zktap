@@ -112,8 +112,3 @@ class RequestUpdate(UserPassesTestMixin, LoginRequiredMixin, TemplateView):
             print(e)
             return redirect(reverse('requested-doors'))
 
-
-class InputListView(UserPassesTestMixin, LoginRequiredMixin, generic.ListView):
-    model = Input
-    template_name='catalog/log.html'
-    context_object_name = 'external_input'
