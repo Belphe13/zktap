@@ -38,7 +38,7 @@ class DoorRequest(models.Model):
         return f'{self.door.door_name}, {self.user.username}'
 
 class Input(models.Model):
-    input_auth = models.CharField(max_length=100, default='0')
+    input_auth = models.CharField(max_length=100, default='1')
     input_door_public_key = models.CharField(max_length=256, default='0')
     input_userr_public_key = models.CharField(max_length=256, default='0')
 

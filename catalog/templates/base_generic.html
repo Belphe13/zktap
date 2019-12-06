@@ -18,21 +18,19 @@
 
 <body>
 
-        {{ external_input.input_auth }}
-
-        {% if external_input.input_auth == '-1' %}
+        {% if input_auth == '-1' %}
         <div class="alert alert-light">
-            <strong>Peaceful... {{ external_input.input_auth }}</strong> Nothing is happening.
+            <strong>Peaceful... {{ input_auth }}</strong> Nothing is happening.
         </div>
         
         {% elif input_auth == '0' %}
         <div class="alert alert-danger">
-            <strong>Danger! {{ input_auth }}</strong> This alert box indicates a dangerous or potentially negative action.
+            <strong>Failed! {{ input_auth }}</strong> This is a failed attempt.
         </div>
         
         {% elif input_auth == '1' %}
         <div class="alert alert-success">
-            <strong>Success! {{ input_auth }}</strong> Indicates a successful or positive action.
+            <strong>Success! {{ input_auth }}</strong> {{input_door_public_key}} was accessed by {{input_user_public_key}} Indicates a successful or positive action.
         </div>
         {% endif %}
         

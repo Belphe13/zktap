@@ -2,7 +2,7 @@
 
 import time
 
-from catalog.models import Door, DoorRequest
+from catalog.models import Door, DoorRequest, Input
 from accounts.models import User
 
 starttime=time.time()
@@ -18,7 +18,11 @@ while True:
     print(input_access.status)
 
     if input_bool == 'True' and unlock == 'approved':
+        success = Input(input_auth="1")
+        success.save()
         print("You got in!")
     else:
+        fail = Input(input_auth="0")
+        fail.save()
         print("Nay")
     time.sleep(1)
